@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 // Adapters
 import vercelAdapter from '@sveltejs/adapter-vercel';
+import Adapter from '@sveltejs/adapter-netlify';
 
 // Custom require function as replacement for the require from the commonJS in ES Module
 
@@ -26,7 +27,7 @@ const config = {
 	],
 
 	kit: {
-		adapter: vercelAdapter(options),
+		adapter: Adapter(options),
 		target: '#starter',
 		ssr: true,
 		prerender: {
@@ -56,4 +57,8 @@ const config = {
 	},
 };
 
-export default config;
+export default {
+  kit: {
+    adapter: Adapter()
+  }
+};
